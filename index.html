@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarea 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Steven David Conejo Elizondo</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Articles</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <h1>Frontend Developer</h1>
+        <p>html only with proper layout, no styling</p>
+      </section>
+      <section class="projects" id="projects">
+        <div class="section-header collapsible-mobile" data-target="projects-content">
+          <h2>Projects</h2>
+        </div>
+        <div class="collapsible-content-mobile" id="projects-content">
+          <ul>
+            <li>HTML Only Portfolio</li>
+            <li>Calculator</li>
+            <li>Quiz App</li>
+            <li>Countdown Timer</li>
+            <li>Product Upcoming Page</li>
+          </ul>
+        </div>
+      </section>
+      <section class="work" id="work">
+        <div class="section-header collapsible-mobile" data-target="work-content">
+          <h2>Work Experience</h2>
+        </div>
+        <div class="collapsible-content-mobile" id="work-content">
+          <div class="work-item">
+            <strong>roadmap.sh</strong>
+            <p>Solved all the frontend projects</p>
+            <a href="#">Visit my Profile</a>
+          </div>
+          <hr />
+          <div class="work-item">
+            <strong>OpenSource Work</strong>
+            <p>Contributed to 50 opensource projects. Made my own projects with 200 GitHub Stars.</p>
+            <a href="#">Visit my GitHub Profile</a>
+          </div>
+        </div>
+      </section>
+      <section class="education">
+        <h2>Education</h2>
+        <p>Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
+        <p class="courses-title">Courses I took:</p>
+        <ul>
+          <li>Object Oriented Programming</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Web Engineering</li>
+          <li>Artificial Intelligence</li>
+          <li>Human Computer Interaction</li>
+          <li>Computer Graphics</li>
+          <li>Database Management Systems</li>
+          <li>Distributed Database Systems</li>
+          <li>Discreet Mathematics</li>
+        </ul>
+      </section>
+      <section class="reviews">
+        <h2>Reviews from my Teachers</h2>
+        <div class="review">
+          <p>Steven Conejo was a brilliant student; always stood out with his assignments.</p>
+          <span>Jane Doe<br>Assistant Professor</span>
+        </div>
+        <div class="review">
+          <p>Steven Conejo was a brilliant student; always stood out with his assignments.</p>
+          <span>Jane Doe<br>Assistant Professor</span>
+        </div>
+        <div class="review">
+          <p>Steven Conejo was a brilliant student; always stood out with his assignments.</p>
+          <span>Jane Doe<br>Assistant Professor</span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; all rights reserved 2025</p>
+    </footer>
+  </div>
+  <script>
+    function setupMobileCollapsibles() {
+      const isMobile = window.innerWidth < 768;
+      const headers = document.querySelectorAll(".collapsible-mobile");
+
+      headers.forEach(header => {
+        const targetId = header.getAttribute("data-target");
+        const content = document.getElementById(targetId);
+        header.onclick = null;
+
+        if (isMobile) {
+          content.classList.remove("active");
+
+          header.onclick = () => {
+            content.classList.toggle("active");
+          };
+        } else {
+          content.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("load", setupMobileCollapsibles);
+    window.addEventListener("resize", setupMobileCollapsibles);
+  </script>
+</body>
+</html>
