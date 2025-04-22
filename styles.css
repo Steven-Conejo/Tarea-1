@@ -1,223 +1,258 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem; /* Reduce font size */
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+main {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+section {
+  background: white;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.projects ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.projects li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.projects li:last-child {
+  border-bottom: none;
+}
+
+.work .work-item {
+  padding-bottom: 1rem;
+}
+
+.work hr {
+  margin: 1rem 0;
+}
+
+.education .courses-title {
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+}
+
+.education ul {
+  margin-top: 0.5rem;
+}
+
+.reviews {
+  text-align: center;
+}
+
+.review {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #fafafa;
+  margin-bottom: 1rem;
+}
+
+.review span {
+  color: blue;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #222;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row;
+  text-align: left;
+  justify-content: center;
+}
+
+.logo-icon {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-areas:
+      "intro intro intro"
+      "projects work education"
+      "reviews reviews reviews";
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem 2rem;
+    gap: 1rem;
   }
-  
-  body {
-    background-color: #f9f9f9;
-    color: #333;
+
+  .intro {
+    grid-area: intro;
   }
-  
-  .container {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+
+  .projects {
+    grid-area: projects;
   }
-  
-  header {
+
+  .work {
+    grid-area: work;
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .reviews {
+    grid-area: reviews;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #222;
-    color: white;
-  }
-  
-  header nav a {
-    color: white;
-    margin-left: 1rem;
-    text-decoration: none;
-  }
-  
-  .intro {
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  main {
-    display: grid;
     gap: 1rem;
-    padding: 1rem;
+    flex-wrap: nowrap;
   }
-  
-  section {
-    background: white;
-    padding: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .projects ul {
-    list-style: none;
-    padding: 0;
+
+  .review {
+    flex: 1 1 30%;
+    max-width: 30%;
     margin: 0;
   }
-  
-  .projects li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #ccc;
+
+  .collapsible-mobile {
+    cursor: default;
+    background: none;
+    padding: 0;
+    border: none;
   }
-  
-  .projects li:last-child {
-    border-bottom: none;
+
+  .collapsible-content-mobile {
+    display: block !important;
+    background: none;
+    padding: 0;
+    border: none;
   }
-  
-  .work .work-item {
-    padding-bottom: 1rem;
+
+  .logo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
   }
-  
-  .work hr {
-    margin: 1rem 0;
+}
+
+@media (max-width: 767px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
   }
-  
-  .education .courses-title {
-    margin: 1rem 0 0.5rem;
-    font-weight: bold;
+
+  header {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .education ul {
-    margin-top: 0.5rem;
+
+  header .logo {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-  
+
+  header nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  header nav a {
+    font-size: 0.7rem; /* Smaller font size */
+    margin: 0;
+  }
+
   .reviews {
-    text-align: center;
+    grid-column: 1 / -1;
   }
-  
-  .review {
-    border: 1px solid #ccc;
+
+  .section-header.collapsible-mobile {
+    background-color: #ddd;
     padding: 1rem;
-    border-radius: 6px;
-    background-color: #fafafa;
-    margin-bottom: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #bbb;
   }
-  
-  .review span {
-    color: blue;
-  }
-  
-  footer {
-    text-align: center;
+
+  .collapsible-content-mobile {
+    display: none;
+    background-color: #f1f1f1;
     padding: 1rem;
-    background-color: #222;
-    color: white;
-    font-size: 0.9rem;
+    border-top: 1px solid #ccc;
   }
-  
-  @media (min-width: 768px) {
-    main {
-      grid-template-areas:
-        "intro intro intro"
-        "projects work education"
-        "reviews reviews reviews";
-      grid-template-columns: 1fr 1fr 1fr;
-      padding: 1rem 2rem;
-      gap: 1rem;
-    }
-  
-    .intro {
-      grid-area: intro;
-    }
-  
-    .projects {
-      grid-area: projects;
-    }
-  
-    .work {
-      grid-area: work;
-    }
-  
-    .education {
-      grid-area: education;
-    }
-  
-    .reviews {
-      grid-area: reviews;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: nowrap;
-    }
-  
-    .review {
-      flex: 1 1 30%;
-      max-width: 30%;
-      margin: 0;
-    }
-  
-    .collapsible-mobile {
-      cursor: default;
-      background: none;
-      padding: 0;
-      border: none;
-    }
-  
-    .collapsible-content-mobile {
-      display: block !important;
-      background: none;
-      padding: 0;
-      border: none;
-    }
+
+  .collapsible-content-mobile.active {
+    display: block;
   }
-  
-  @media (max-width: 767px) {
-    main {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      padding: 0;
-    }
-  
-    header {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    header .logo {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-  
-    header nav {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      width: 100%;
-      padding: 0 1rem;
-    }
-  
-    header nav a {
-      margin: 0;
-      background-color: #333;
-      padding: 0.5rem;
-      border-radius: 4px;
-      text-align: center;
-    }
-  
-    .reviews {
-      grid-column: 1 / -1;
-    }
-  
-    .section-header.collapsible-mobile {
-      background-color: #ddd;
-      padding: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      border-bottom: 1px solid #bbb;
-    }
-  
-    .collapsible-content-mobile {
-      display: none;
-      background-color: #f1f1f1;
-      padding: 1rem;
-      border-top: 1px solid #ccc;
-    }
-  
-    .collapsible-content-mobile.active {
-      display: block;
-    }
-  }
-  
-  
+}
+
+
+
+
