@@ -33,7 +33,7 @@ header nav {
 header nav a {
   color: white;
   text-decoration: none;
-  font-size: 0.8rem; 
+  font-size: 0.8rem;
 }
 
 header nav a:hover {
@@ -225,7 +225,7 @@ footer {
   }
 
   header nav a {
-    font-size: 0.7rem; 
+    font-size: 0.7rem;
     margin: 0;
   }
 
@@ -253,7 +253,8 @@ footer {
   }
 
   .logo-icon {
-    order: -1; 
+    order: -1;
+    margin-bottom: 0.25rem;
   }
 }
 
